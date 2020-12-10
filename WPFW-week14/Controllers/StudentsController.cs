@@ -20,25 +20,31 @@ namespace WPFW_week14.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index(string sortType, string sortByOrder, string filter)
+        public async Task<IActionResult> Index(string sortType, string sortByOrder, string filter, int pageNumber)
         {
-            IQueryable<Student> students = Sort(sortType, sortByOrder);
+            IQueryable<Student> students = _context.Student;
+
+            students = Sort(students, sortType, sortByOrder);
             students = FilterByUserInput(students, filter);
-            return View(await students.ToListAsync());
+
+            return View(await Paginate(students, pageNumber));
+        }
+
+        private async Task<PaginatedList<Student>> Paginate(IQueryable<Student> students, int pageNumber)
+        {
+            return await PaginatedList<Student>.CreateAsync(students, pageNumber, 3);
         }
 
         private IQueryable<Student> FilterByUserInput(IQueryable<Student> students, string filter)
         {
             ViewData["Filter"] = filter;
 
-            if (!String.IsNullOrEmpty(filter)) return students.Where(s => s.Name.Contains(filter));
+            if (!string.IsNullOrEmpty(filter)) return students.Where(s => s.Name.Contains(filter));
             return students;
         }
 
-        private IQueryable<Student> Sort(string sortType, string sortByOrder)
+        private IQueryable<Student> Sort(IQueryable<Student> students, string sortType, string sortByOrder)
         {
-            IQueryable<Student> students = _context.Student;
-
             ViewData["SortType"] = sortType;
             ViewData["SortByOrder"] = sortByOrder;
 
@@ -84,6 +90,8 @@ namespace WPFW_week14.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["signedUp"] = _context.StudentCourse.Where(c => c.Student.Id == id);
 
             return View(student);
         }
@@ -188,6 +196,25 @@ namespace WPFW_week14.Controllers
             _context.Student.Remove(student);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> AddCourse(int? id) 
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Student.FindAsync(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["Student"] = student;
+            ViewData["StudentCourse"] = _context.StudentCourse;
+
+            return View(_context.Course);
         }
 
         private bool StudentExists(int id)

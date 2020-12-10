@@ -178,3 +178,4 @@ C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Details.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Edit.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Index.cshtml.g.cs
+C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Students\AddCourse.cshtml.g.cs

@@ -10,21 +10,34 @@
     <h4>Student</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Length)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Length)
         </dd>
     </dl>
+    <hr />
+</div>
+<div>
+    <h5>Volgt cursussen:</h5>
+    <hr />
+    @foreach (var signedUpForCourse in (IEnumerable<StudentCourse>)ViewData["signedUp"])
+    {
+        <div class="flex-column">
+            @signedUpForCourse.Course.Name
+        </div>
+    }
+    <hr />
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="AddCourse" asp-route-id="@Model.Id">AddCourse</a> |
     <a asp-action="Index">Back to List</a>
 </div>

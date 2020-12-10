@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WPFW_week14.Models.Student>
+﻿@model WPFW_week14.Models.PaginatedList<WPFW_week14.Models.Student>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,8 +8,8 @@
 <div class="d-flex flex-row justify-content-around">
     <form asp-action="Index" method="get">
         <label class="mr-2">Filter op:</label>
-        <input type="hidden" name="sortType" value='@ViewData["SortType"]' />
-        <input type="hidden" name="sortByOrder" value='@ViewData["SortByOrder"]' />
+        <input type="hidden" name="sortType" value="@ViewData["SortType"]" />
+        <input type="hidden" name="sortByOrder" value="@ViewData["SortByOrder"]" />
         <input type="text" name="filter" value="@ViewData["Filter"]" />
         <input type="submit" value="Zoeken" />
     </form>
@@ -21,8 +21,18 @@
                 Id
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Id" asp-route-SortByOrder="Ascending" asp-route-Filter="@ViewData["Filter"]">Ascending</a>
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Id" asp-route-SortByOrder="Descending" asp-route-Filter="@ViewData["Filter"]">Descending</a>
+                <a class="dropdown-item" asp-action="Index" 
+                   asp-route-sortType="Id" 
+                   asp-route-sortByOrder="Ascending" 
+                   asp-route-filter="@ViewData["Filter"]">
+                    Ascending
+                </a>
+                <a class="dropdown-item" asp-action="Index" 
+                   asp-route-sortType="Id" 
+                   asp-route-sortByOrder="Descending" 
+                   asp-route-filter="@ViewData["Filter"]">
+                    Descending
+                </a>
             </div>
         </div>
         <div class="btn-group">
@@ -30,8 +40,17 @@
                 Name
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Name" asp-route-SortByOrder="Ascending" asp-route-Filter="@ViewData["Filter"]">Ascending</a>
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Name" asp-route-SortByOrder="Descending" asp-route-Filter="@ViewData["Filter"]">Descending</a>
+                <a class="dropdown-item" asp-action="Index" 
+                   asp-route-sortType="Name" 
+                   asp-route-sortByOrder="Ascending" 
+                   asp-route-filter="@ViewData["Filter"]">
+                    Ascending</a>
+                <a class="dropdown-item" asp-action="Index" 
+                   asp-route-sortType="Name" 
+                   asp-route-sortByOrder="Descending" 
+                   asp-route-filter="@ViewData["Filter"]">
+                    Descending
+                </a>
             </div>
         </div>
         <div class="btn-group">
@@ -39,8 +58,18 @@
                 Length
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Length" asp-route-SortByOrder="Ascending" asp-route-Filter="@ViewData["Filter"]">Ascending</a>
-                <a class="dropdown-item" asp-action="Index" asp-route-SortType="Length" asp-route-SortByOrder="Descending" asp-route-Filter="@ViewData["Filter"]">Descending</a>
+                <a class="dropdown-item" asp-action="Index"
+                   asp-route-sortType="Length"
+                   asp-route-sortByOrder="Ascending"
+                   asp-route-filter="@ViewData["Filter"]">
+                    Ascending
+                </a>
+                <a class="dropdown-item" asp-action="Index"
+                   asp-route-sortType="Length"
+                   asp-route-sortByOrder="Descending"
+                   asp-route-filter="@ViewData["Filter"]">
+                    Descending
+                </a>
             </div>
         </div>
     </div>
@@ -52,12 +81,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Length)
-            </th>
+            <th>Name</th>
+            <th>Length</th>
             <th></th>
         </tr>
     </thead>
@@ -79,4 +104,21 @@
             </tr>
         }
     </tbody>
+
 </table>
+<div class="d-flex flex-row justify-content-center mt-5">
+    <a class="btn btn-primary @(Model.HasPreviousPage ? "" : "disabled")" asp-action="Index"
+       asp-route-sortType="@ViewData["SortType"]"
+       asp-route-sortByOrder="@ViewData["SortByOrder"]"
+       asp-route-filter="@ViewData["Filter"]"
+       asp-route-pageNumber="@((int)Model.PageIndex - 1)">
+        Previous page
+    </a>
+    <a class="btn btn-primary ml-5 @(Model.HasNextPage ? "" : "disabled")" asp-action="Index"
+       asp-route-sortType="@ViewData["SortType"]"
+       asp-route-sortByOrder="@ViewData["SortByOrder"]"
+       asp-route-filter="@ViewData["Filter"]"
+       asp-route-pageNumber="@((int)Model.PageIndex + 1)">
+        Next page
+    </a>
+</div>
