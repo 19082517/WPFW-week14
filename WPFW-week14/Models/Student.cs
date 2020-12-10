@@ -9,6 +9,6 @@ namespace WPFW_week14.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double length { get; set; }
+        public double Length { get; set; }
     }
 }

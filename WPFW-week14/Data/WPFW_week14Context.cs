@@ -13,11 +13,7 @@ namespace WPFW_week14.Data
             : base(options)
         {
         }
-
         public DbSet<WPFW_week14.Models.Student> Student { get; set; }
-
         public DbSet<WPFW_week14.Models.Course> Course { get; set; }
-
-        public DbSet<WPFW_week14.Models.StudentCourse> StudentCourse { get; set; }
     }
 }

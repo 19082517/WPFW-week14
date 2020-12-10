@@ -9,8 +9,6 @@ C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\WPFW
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\WPFW-week14.Views.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\WPFW-week14.Views.pdb
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -27,9 +25,7 @@ C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Micr
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
@@ -168,6 +164,10 @@ C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\WPFW
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\WPFW-week14.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\WPFW-week14.pdb
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\WPFW-week14.genruntimeconfig.cache
+C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Students\Create.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Students\Delete.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Students\Details.cshtml.g.cs
@@ -178,8 +178,3 @@ C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razo
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Details.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Edit.cshtml.g.cs
 C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\Courses\Index.cshtml.g.cs
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\StudentCourses\Create.cshtml.g.cs
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\StudentCourses\Delete.cshtml.g.cs
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\StudentCourses\Details.cshtml.g.cs
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\StudentCourses\Edit.cshtml.g.cs
-C:\Users\Mehdi\source\repos\WPFW-week14\WPFW-week14\obj\Debug\netcoreapp3.1\Razor\Views\StudentCourses\Index.cshtml.g.cs

@@ -20,9 +20,54 @@ namespace WPFW_week14.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortType, string sortByOrder, string filter)
         {
-            return View(await _context.Student.ToListAsync());
+            IQueryable<Student> students = Sort(sortType, sortByOrder);
+            students = FilterByUserInput(students, filter);
+            return View(await students.ToListAsync());
+        }
+
+        private IQueryable<Student> FilterByUserInput(IQueryable<Student> students, string filter)
+        {
+            ViewData["Filter"] = filter;
+
+            if (!String.IsNullOrEmpty(filter)) return students.Where(s => s.Name.Contains(filter));
+            return students;
+        }
+
+        private IQueryable<Student> Sort(string sortType, string sortByOrder)
+        {
+            IQueryable<Student> students = _context.Student;
+
+            ViewData["SortType"] = sortType;
+            ViewData["SortByOrder"] = sortByOrder;
+
+            switch (sortType)
+            {
+                case "Name": students = SortByName(students, sortByOrder); break;
+                case "Length": students = SortByLength(students, sortByOrder); break;
+                default: students = SortById(students, sortByOrder); break;
+            }
+
+            return students;
+        }
+
+        private IQueryable<Student> SortById(IQueryable<Student> students, string sortByOrder)
+        {
+            if (sortByOrder == "Descending") return students.OrderByDescending(s => s.Id);
+            return students.OrderBy(s => s.Id);
+        }
+
+        private IQueryable<Student> SortByName(IQueryable<Student> students, string sortByOrder)
+        {
+            if (sortByOrder == "Descending") return students.OrderByDescending(s => s.Name);
+            return students.OrderBy(s => s.Name);
+        }
+
+        private IQueryable<Student> SortByLength(IQueryable<Student> students, string sortByOrder)
+        {
+            if (sortByOrder == "Descending") return students.OrderByDescending(s => s.Length);
+            return students.OrderBy(s => s.Length);
         }
 
         // GET: Students/Details/5
@@ -54,7 +99,7 @@ namespace WPFW_week14.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,length")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,Name,Length")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +131,7 @@ namespace WPFW_week14.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,length")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Length")] Student student)
         {
             if (id != student.Id)
             {
