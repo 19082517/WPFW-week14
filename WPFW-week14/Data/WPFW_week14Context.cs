@@ -16,5 +16,10 @@ namespace WPFW_week14.Data
         public DbSet<WPFW_week14.Models.Student> Student { get; set; }
         public DbSet<WPFW_week14.Models.Course> Course { get; set; }
         public DbSet<WPFW_week14.Models.StudentCourse> StudentCourse { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder m) 
+        {
+            m.Entity<StudentCourse>().HasKey(m => new { m.CourseId, m.StudentId });
+        }
     }
 }

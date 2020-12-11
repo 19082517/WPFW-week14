@@ -91,7 +91,8 @@ namespace WPFW_week14.Controllers
                 return NotFound();
             }
 
-            ViewData["signedUp"] = _context.StudentCourse.Where(c => c.Student.Id == id);
+            ViewData["Courses"] = _context.Course;
+            ViewData["SignedUp"] = _context.StudentCourse.Where(c => c.StudentId == id);
 
             return View(student);
         }
@@ -196,62 +197,6 @@ namespace WPFW_week14.Controllers
             _context.Student.Remove(student);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        public async Task<IActionResult> AddCourse(int? id) 
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            ViewData["Student"] = student;
-            ViewData["Course"] = _context.Course;
-            ViewData["StudentCourse"] = _context.StudentCourse.Where(s => s.Student.Id == student.Id);
-
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddCourse()
-        {
-            //TODO: implement this method
-            return null;
-        }
-
-        public async Task<IActionResult> RemoveCourse(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            ViewData["Student"] = student;
-            ViewData["Course"] = _context.Course;
-            ViewData["StudentCourse"] = _context.StudentCourse.Where(s => s.Student.Id == student.Id);
-
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RemoveCourse()
-        {
-            //TODO: implement this method
-            return null;
         }
 
         private bool StudentExists(int id)

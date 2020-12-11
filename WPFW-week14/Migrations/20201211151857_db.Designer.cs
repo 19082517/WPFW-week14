@@ -9,7 +9,7 @@ using WPFW_week14.Data;
 namespace WPFW_week14.Migrations
 {
     [DbContext(typeof(WPFW_week14Context))]
-    [Migration("20201210103343_db")]
+    [Migration("20201211151857_db")]
     partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,36 @@ namespace WPFW_week14.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("WPFW_week14.Models.StudentCourse", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CourseId", "StudentId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("StudentCourse");
+                });
+
+            modelBuilder.Entity("WPFW_week14.Models.StudentCourse", b =>
+                {
+                    b.HasOne("WPFW_week14.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WPFW_week14.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
