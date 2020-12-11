@@ -212,9 +212,46 @@ namespace WPFW_week14.Controllers
             }
 
             ViewData["Student"] = student;
-            ViewData["StudentCourse"] = _context.StudentCourse;
+            ViewData["Course"] = _context.Course;
+            ViewData["StudentCourse"] = _context.StudentCourse.Where(s => s.Student.Id == student.Id);
 
-            return View(_context.Course);
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddCourse()
+        {
+            //TODO: implement this method
+            return null;
+        }
+
+        public async Task<IActionResult> RemoveCourse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Student.FindAsync(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["Student"] = student;
+            ViewData["Course"] = _context.Course;
+            ViewData["StudentCourse"] = _context.StudentCourse.Where(s => s.Student.Id == student.Id);
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveCourse()
+        {
+            //TODO: implement this method
+            return null;
         }
 
         private bool StudentExists(int id)

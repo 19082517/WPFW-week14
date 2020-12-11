@@ -1,21 +1,21 @@
-﻿<h1>Add course</h1>
+﻿<h1>Remove course</h1>
 
 <div>
     <form asp-action="Index" method="post">
-        <label>Select course to add:</label>
+        <label>Select course to delete:</label>
         <select class="form-control col-3">
             @foreach (var itemC in (IEnumerable<Course>)ViewData["Course"])
             {
-                bool check = true;
+                bool check = false;
 
                 foreach (var itemSC in (IEnumerable<StudentCourse>)ViewData["StudentCourse"])
                 {
-                     if (itemC.Equals(itemSC.Course)) check = false;
+                    if (itemC.Equals(itemSC.Course)) check = true;
                 }
 
                 if (check)
                 {
-                     <option>@itemC.Name</option>
+                    <option>@itemC.Name</option>
                 }
             }
         </select>

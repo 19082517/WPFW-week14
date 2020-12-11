@@ -26,11 +26,11 @@
     <hr />
 </div>
 <div>
-    <h5>Volgt cursussen:</h5>
+    <h5>Follows courses:</h5>
     <hr />
     @foreach (var signedUpForCourse in (IEnumerable<StudentCourse>)ViewData["signedUp"])
     {
-        <div class="flex-column">
+        <div class="mt-1 flex-column">
             @signedUpForCourse.Course.Name
         </div>
     }
@@ -38,6 +38,7 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="AddCourse" asp-route-id="@Model.Id">AddCourse</a> |
+    <a asp-action="AddCourse" asp-route-id="@Model.Id">Add course</a> |
+    <a asp-action="RemoveCourse" asp-route-id="@Model.Id">Remove course</a> |
     <a asp-action="Index">Back to List</a>
 </div>
