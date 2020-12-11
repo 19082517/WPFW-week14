@@ -21,7 +21,7 @@ namespace WPFW_week14.Models
 
         public bool HasPreviousPage
         {
-            get { return (PageIndex > 1); }
+            get { return (PageIndex > 0); }
         }
 
         public bool HasNextPage
