@@ -14,11 +14,21 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="StudentId" class="control-label"></label>
-                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <select asp-for="StudentId" class="form-control">
+                    @foreach (var itemS in (IEnumerable<Student>)ViewData["StudentId"])
+                    {
+                        <option value="@itemS.Id">(@itemS.Id) @itemS.Name</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="CourseId" class="control-label"></label>
-                <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <select asp-for="CourseId" class="form-control">
+                    @foreach (var itemC in (IEnumerable<Course>)ViewData["CourseId"])
+                    {
+                        <option value="@itemC.Id">(@itemC.Id) @itemC.Name</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

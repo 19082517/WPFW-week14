@@ -49,8 +49,8 @@ namespace WPFW_week14.Controllers
         // GET: StudentCourses/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Course, "Id", "Name");
-            ViewData["StudentId"] = new SelectList(_context.Student, "Id", "Name");
+            ViewData["CourseId"] = _context.Course;
+            ViewData["StudentId"] = _context.Student;
             return View();
         }
 

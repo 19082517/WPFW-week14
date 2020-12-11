@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Student courses</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add student to course</a>
 </p>
 <table class="table">
     <thead>
@@ -25,10 +25,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
+                (@Html.DisplayFor(modelItem => item.Student.Id))
+                @Html.DisplayFor(modelItem => item.Student.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Course.Id)
+                (@Html.DisplayFor(modelItem => item.Course.Id))
+                @Html.DisplayFor(modelItem => item.Course.Name)
             </td>
             <td>
                 <a asp-action="Delete" asp-route-studentId="@item.Student.Id" asp-route-courseId="@item.Course.Id">
